@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { Button, Alert, Box, TextField, Typography, Link } from "@mui/material";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { Formik, Field, Form } from "formik";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
