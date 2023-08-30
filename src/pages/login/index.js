@@ -43,7 +43,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex items-center justify-center h-screen">
         <div className="p-5 box max-w-md bg-white rounded shadow-lg">
           <h2 className="mb-3 text-center">Login</h2>
           {currentUser && currentUser.email}
@@ -51,7 +51,7 @@ export default function Login() {
           {error && <Alert severity="error">{error}</Alert>}
           <form onSubmit={handleSubmit}>
             <TextField
-              className="mb-3 w-full"
+              className="mb-5 w-full"
               label="Email Address"
               type="email"
               inputRef={emailRef}
@@ -64,7 +64,7 @@ export default function Login() {
               inputRef={passwordRef}
               required
             />
-            <div className="mt-4">
+            <div className="mt-4 mb-4">
               <Button
                 variant="contained"
                 color="primary"
@@ -77,10 +77,10 @@ export default function Login() {
             </div>
           </form>
           <hr className="my-4" />
-          <div className="text-center">
+          <div className="mx-4 text-center">
             <div className="inline-block">
               <GoogleButton
-                className="g-btn"
+                className="g-btn mt-4 mb-4"
                 type="dark"
                 onClick={handleGoogleLogin}
               />
