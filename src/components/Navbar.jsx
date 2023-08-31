@@ -9,12 +9,12 @@ import Link from "next/link";
 
 export default function NavbarDefault() {
   return (
-    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
+    <Navbar className="w-full max-w-8xl py-2 lg:px-2 lg:py-3 ">
       <div className="container mx-auto flex justify-between text-blue-gray-900">
         <Typography
           as="a"
           href="/"
-          className="mr-1 cursor-pointer py-1.5 font-medium text-green-400"
+          className="mr-1 cursor-pointer py-1.5 font-medium text-blue-500 "
         >
           DropboxSign
         </Typography>
@@ -32,8 +32,16 @@ export default function NavbarDefault() {
         >
           Documents
         </Typography>
-        <div className="border-4 border-green-700">
-          <Link href="/signup">
+        <Typography
+          as="a"
+          href="/"
+          className="cursor-pointer py-1.5 font-medium"
+        >
+          Documents
+        </Typography>
+
+        <div className="">
+          <Link href="/signup" className="mx-2">
             <Button ripple={true} variant="gradient">
               Sign up
             </Button>

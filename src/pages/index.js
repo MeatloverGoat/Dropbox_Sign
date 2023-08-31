@@ -1,3 +1,11 @@
 export default function Home() {
-  return <h1>Hello world</h1>;
+  return (
+    <>
+      <div className="flex justify-between">
+        <div>Header</div>
+        <div>Main</div>
+        <div>sidebar</div>
+      </div>
+    </>
+  );
 }
