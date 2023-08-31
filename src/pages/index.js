@@ -1,10 +1,8 @@
 export default function Home() {
   return (
     <>
-      <div className="flex justify-between">
-        <div>Header</div>
-        <div>Main</div>
-        <div>sidebar</div>
+      <div className="flex flex-col">
+        <h1 className="text-3xl">Hello Dropbox</h1>
       </div>
     </>
   );

@@ -20,14 +20,14 @@ export default function NavbarDefault() {
         </Typography>
         <Typography
           as="a"
-          href="/"
+          href="/home"
           className="cursor-pointer py-1.5 font-medium"
         >
           Account
         </Typography>
         <Typography
           as="a"
-          href="/"
+          href="/home"
           className="cursor-pointer py-1.5 font-medium"
         >
           Documents
