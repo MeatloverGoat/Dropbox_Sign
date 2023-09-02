@@ -20,7 +20,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      router.push("/");
+      router.push("/main");
     } catch (error) {
       setError(error.message);
     } finally {
@@ -33,7 +33,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await googleLogin();
-      router.push("/");
+      router.push("/main");
     } catch (error) {
       setError(error.message);
     } finally {

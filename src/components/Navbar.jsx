@@ -1,15 +1,17 @@
-import React from "react";
-import {
-  Navbar,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-tailwind/react";
+import { useEffect, useState } from "react";
+import { Navbar, Typography, Button } from "@material-tailwind/react";
 import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
 
 export default function NavbarDefault() {
+  const { isLoggedIn } = useAuth();
+
   return (
-    <Navbar className="w-full max-w-8xl py-2 lg:px-2 lg:py-3 ">
+    <Navbar
+      className={`w-full max-w-8xl py-2 lg:px-2 lg:py-3 ${
+        isLoggedIn ? "hidden" : ""
+      }`}
+    >
       <div className="container mx-auto flex justify-between text-blue-gray-900">
         <Typography
           as="a"

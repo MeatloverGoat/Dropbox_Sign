@@ -29,7 +29,7 @@ export default function Signup() {
       setError("");
       setLoading(true);
       await signup(values.email, values.password);
-      router.push("/account");
+      router.push("/main");
     } catch (error) {
       setError(error.message);
     }
