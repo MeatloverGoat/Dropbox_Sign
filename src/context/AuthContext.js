@@ -17,6 +17,8 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
 
+  const isLoggedIn = !!currentUser; // Determine if user is logged in
+
   function signup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
@@ -43,6 +45,7 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
+    isLoggedIn, // Include isLoggedIn in the context value
     signup,
     login,
     googleLogin,
