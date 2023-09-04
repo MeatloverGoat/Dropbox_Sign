@@ -1,4 +1,4 @@
-"use client";
+
 import { useLayoutEffect, useState } from "react";
 import { Navbar, Typography, Button } from "@material-tailwind/react";
 import Link from "next/link";
