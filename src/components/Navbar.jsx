@@ -1,10 +1,18 @@
-import { useEffect, useState } from "react";
+"use client";
+import { useLayoutEffect, useState } from "react";
 import { Navbar, Typography, Button } from "@material-tailwind/react";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
+import { set } from "zod";
 
 export default function NavbarDefault() {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn: authIsLoggedIn } = useAuth();
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+
+  // Sync state with the context value
+  useLayoutEffect(() => {
+    setisLoggedIn(authIsLoggedIn);
+  }, [authIsLoggedIn]);
 
   return (
     <Navbar
@@ -16,7 +24,7 @@ export default function NavbarDefault() {
         <Typography
           as="a"
           href="/"
-          className="mr-1 cursor-pointer py-1.5 font-medium text-blue-500 "
+          className="mr-1 cursor-pointer py-1.5 font-bold text-blue-500  text-lg align-baseline"
         >
           DropboxSign
         </Typography>

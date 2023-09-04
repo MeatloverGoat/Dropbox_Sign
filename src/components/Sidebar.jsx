@@ -12,12 +12,18 @@ import {
 } from "@heroicons/react/24/outline";
 import LogoutButton from "@/components/LogoutButton";
 import Image from "next/image";
+import Link from "next/link";
 
 const navigation = [
-  { name: "Upload File", href: "#", icon: FolderIcon, current: false },
+  {
+    name: "Upload File",
+    href: "/main/upload",
+    icon: FolderIcon,
+    current: false,
+  },
   {
     name: "Saved Documents",
-    href: "#",
+    href: "/main/doc",
     icon: DocumentDuplicateIcon,
     current: false,
   },
@@ -32,7 +38,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function Sidebar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -103,7 +109,7 @@ export default function Example() {
                     <div className="flex h-16 shrink-0 items-center">
                       <img
                         className="h-8 w-auto"
-                        src="./dropbox.svg"
+                        src="/dropbox.svg"
                         alt="Dropbox"
                       />
                     </div>
@@ -113,21 +119,13 @@ export default function Example() {
                           <ul role="list" className="-mx-2 space-y-1">
                             {navigation.map((item) => (
                               <li key={item.name}>
-                                <a
-                                  href={item.href}
-                                  className={classNames(
-                                    item.current
-                                      ? "bg-gray-800 text-white"
-                                      : "text-gray-400 hover:text-white hover:bg-gray-800",
-                                    "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-                                  )}
-                                >
+                                <Link href={item.href}>
                                   <item.icon
                                     className="h-6 w-6 shrink-0"
                                     aria-hidden="true"
                                   />
                                   {item.name}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -171,7 +169,7 @@ export default function Example() {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6">
             <div className="flex h-16 shrink-0 items-center">
-              <img className="h-8 w-auto" src="./dropbox.svg" alt="Dropbox a" />
+              <img className="h-8 w-auto" src="/dropbox.svg" alt="Dropbox" />
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -228,11 +226,6 @@ export default function Example() {
                     href="#"
                     className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
                   >
-                    <img
-                      className="h-8 w-8 rounded-full bg-gray-800"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
                     <span className="sr-only">Your profile</span>
                     <span aria-hidden="true">Tom Cook</span>
                     <LogoutButton />
@@ -265,28 +258,7 @@ export default function Example() {
           </a>
         </div>
 
-        <main className="py-10 lg:pl-72">
-          <div className="px-4 sm:px-6 lg:px-8">
-            <label
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              for="file_input"
-            >
-              Upload file
-            </label>
-            <input
-              className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-              aria-describedby="file_input_help"
-              id="file_input"
-              type="file"
-            ></input>
-            <p
-              className="mt-1 text-sm text-gray-500 dark:text-gray-300"
-              id="file_input_help"
-            >
-              SVG, PNG, JPG or GIF (MAX. 800x400px).
-            </p>
-          </div>
-        </main>
+        <main className="py-10 lg:pl-72">{/* Page header */}</main>
       </div>
     </>
   );

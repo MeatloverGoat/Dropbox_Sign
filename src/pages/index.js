@@ -1,10 +1,22 @@
 import { useState, useEffect } from "react";
 import LogoutButton from "@/components/LogoutButton";
 import Link from "next/link";
+import NavbarDefault from "../components/Navbar";
+import Router from "next/router";
+import { useAuth } from "../context/AuthContext";
 
 export default function Home() {
+  const { isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      Router.push("/main");
+    }
+  }, [isLoggedIn]);
+
   return (
     <>
+      <NavbarDefault />
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
