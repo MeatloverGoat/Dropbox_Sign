@@ -8,7 +8,6 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <NavbarDefault />
         <Component {...pageProps} />
       </AuthProvider>
     </ThemeProvider>
