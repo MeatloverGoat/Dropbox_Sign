@@ -13,6 +13,7 @@ import {
 import LogoutButton from "@/components/LogoutButton";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
 
 const navigation = [
   {
@@ -40,7 +41,8 @@ function classNames(...classes) {
 
 export default function Sidebar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const { currentUser } = useAuth();
+  console.log(currentUser);
   return (
     <>
       {/*
@@ -226,8 +228,19 @@ export default function Sidebar() {
                     href="#"
                     className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
                   >
+                    <img
+                      className="h-8 w-8 rounded-full bg-gray-800"
+                      src={
+                        currentUser
+                          ? currentUser.photoURL
+                          : "/default-profile.jpg"
+                      }
+                      alt=""
+                    />
                     <span className="sr-only">Your profile</span>
-                    <span aria-hidden="true">Tom Cook</span>
+                    <span aria-hidden="true">
+                      {currentUser ? currentUser.displayName : "Guest"}
+                    </span>
                     <LogoutButton />
                   </a>
                 </li>

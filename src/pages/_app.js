@@ -1,6 +1,5 @@
 "use client";
 import "@/styles/globals.css";
-import NavbarDefault from "../components/Navbar";
 import { ThemeProvider } from "@material-tailwind/react";
 import { AuthProvider } from "../context/AuthContext";
 

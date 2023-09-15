@@ -1,9 +1,7 @@
-
 import { useLayoutEffect, useState } from "react";
 import { Navbar, Typography, Button } from "@material-tailwind/react";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
-import { set } from "zod";
 
 export default function NavbarDefault() {
   const { isLoggedIn: authIsLoggedIn } = useAuth();
@@ -16,11 +14,11 @@ export default function NavbarDefault() {
 
   return (
     <Navbar
-      className={`w-full max-w-8xl py-2 lg:px-2 lg:py-3 ${
+      className={`w-full max-w-8xl py-2 lg:px-2 lg:py-3 border-none ${
         isLoggedIn ? "hidden" : ""
       }`}
     >
-      <div className="container mx-auto flex justify-between text-blue-gray-900">
+      <div className="border-0 container mx-auto flex justify-between text-blue-gray-900">
         <Typography
           as="a"
           href="/"
@@ -30,35 +28,38 @@ export default function NavbarDefault() {
         </Typography>
         <Typography
           as="a"
-          href="/home"
+          href="#features"
           className="cursor-pointer py-1.5 font-medium"
         >
-          Account
+          Features
         </Typography>
         <Typography
           as="a"
-          href="/home"
+          href="#testimonials"
           className="cursor-pointer py-1.5 font-medium"
         >
-          Documents
+          Testimonials
         </Typography>
         <Typography
           as="a"
-          href="/"
+          href="#pricing"
           className="cursor-pointer py-1.5 font-medium"
         >
-          Documents
+          Pricing
         </Typography>
 
         <div className="">
-          <Link href="/signup" className="mx-2">
+          <Link href="/signin">
             <Button ripple={true} variant="gradient">
-              Sign up
+              Sign in
             </Button>
           </Link>
-          <Link href="/login">
-            <Button ripple={true} variant="outlined">
-              Log in
+
+          <Link href="/register">
+            <Button color="blue" className="mx-2">
+              <span>
+                Get started <span className="hidden lg:inline">today</span>
+              </span>
             </Button>
           </Link>
         </div>

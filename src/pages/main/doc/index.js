@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
+import MyPdfViewer from "@/components/PdfViewer";
 
 const fakeDocuments = [
   {
@@ -28,7 +29,7 @@ export default function Docs() {
 
   // Fetch data when the component mounts
   useEffect(() => {
-    fetch("https://mw0zd270e9.execute-api.us-east-1.amazonaws.com/explanation/")
+    fetch("http://localhost:3002/data")
       .then((response) => response.json())
       .then((data) => setDocumentData(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -55,11 +56,12 @@ export default function Docs() {
         )}
         {documentData && (
           <div className="mt-4 p-4 border border-gray-300">
-            <h2>{documentData.body}</h2>
-            <p>{documentData.fakeText}</p>
+            <h2>{documentData.title}</h2>
+            <p>{documentData.content}</p>
           </div>
         )}
       </div>
+      <MyPdfViewer />
     </div>
   );
 }
