@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
-import MyPdfViewer from "@/components/PdfViewer";
 
 const fakeDocuments = [
   {
