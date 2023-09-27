@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import LogoutButton from "@/components/LogoutButton";
 import Link from "next/link";
-
 import NavbarDefault from "../components/Navbar";
 import Router from "next/router";
 import { useAuth } from "../context/AuthContext";

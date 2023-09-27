@@ -16,6 +16,7 @@
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.1",
     "@mui/material": "^5.14.7",
+    "@react-pdf/renderer": "^3.1.12",
     "@tailwindcss/forms": "^0.5.6",
     "autoprefixer": "10.4.15",
     "eslint": "8.48.0",
@@ -25,12 +26,17 @@
     "formik": "^2.4.3",
     "hellosign-embedded": "^2.11.1",
     "next": "13.4.19",
+    "pdfjs": "^2.5.2",
     "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-google-button": "^0.7.2",
+    "react-iframe": "^1.8.5",
     "react-pdf": "^7.3.3",
     "tailwindcss": "3.3.3",
     "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "raw-loader": "^4.0.2"
   }
 }

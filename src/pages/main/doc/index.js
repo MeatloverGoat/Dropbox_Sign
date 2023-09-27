@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
+import dynamic from "next/dynamic";
+
+const HelloSignComponent = dynamic(
+  () => import("@/components/HelloSignComponent"),
+  { ssr: false }
+);
 
 const fakeDocuments = [
   {
@@ -25,6 +31,19 @@ const fakeDocuments = [
 export default function Docs() {
   const [documentData, setDocumentData] = useState(null);
   const [selectedDoc, setSelectedDoc] = useState(null);
+  const [signUrl, setSignUrl] = useState(null);
+
+  // Function to fetch signUrl on button click
+  const fetchSignUrl = () => {
+    console.log("Fetching sign URL...");
+    fetch("http://localhost:3002/get-sign-url")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data); // Log the data
+        setSignUrl(data.signUrl); // Set the state
+      })
+      .catch((error) => console.error("Error fetching sign URL:", error));
+  };
 
   // Fetch data when the component mounts
   useEffect(() => {
@@ -59,8 +78,20 @@ export default function Docs() {
             <p>{documentData.content}</p>
           </div>
         )}
+        <button
+          onClick={fetchSignUrl}
+          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
+        >
+          Go sign this document
+        </button>
+
+        <HelloSignComponent
+          claimUrl={
+            "https://app.hellosign.com/editor/embeddedSign?signature_id=b05cb53d1ad509ff407ea2e84d6b24d1&token=981d2936b24469ae40425cb2b83a2b83"
+          }
+          clientId="e0ceeba6cccdaa89aee90717efe7171c"
+        />
       </div>
-      <MyPdfViewer />
     </div>
   );
 }

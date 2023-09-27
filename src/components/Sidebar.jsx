@@ -28,6 +28,12 @@ const navigation = [
     icon: DocumentDuplicateIcon,
     current: false,
   },
+  {
+    name: "Analyze Document",
+    href: "/main/analyze",
+    icon: DocumentDuplicateIcon,
+    current: false,
+  },
 ];
 const teams = [
   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
