@@ -36,7 +36,7 @@ export default function Docs() {
   // Function to fetch signUrl on button click
   const fetchSignUrl = () => {
     console.log("Fetching sign URL...");
-    fetch("http://localhost:3002/get-sign-url")
+    fetch("/api/signurl") // Use the relative path to your API route
       .then((response) => response.json())
       .then((data) => {
         console.log(data); // Log the data
@@ -85,12 +85,12 @@ export default function Docs() {
           Go sign this document
         </button>
 
-        <HelloSignComponent
-          claimUrl={
-            "https://app.hellosign.com/editor/embeddedSign?signature_id=b05cb53d1ad509ff407ea2e84d6b24d1&token=981d2936b24469ae40425cb2b83a2b83"
-          }
-          clientId="e0ceeba6cccdaa89aee90717efe7171c"
-        />
+        {signUrl && (
+          <HelloSignComponent
+            claimUrl={signUrl}
+            clientId="e0ceeba6cccdaa89aee90717efe7171c"
+          />
+        )}
       </div>
     </div>
   );
